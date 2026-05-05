@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>F &amp; F</title>
+<link rel="icon" href="images/F & F Logo.png" />
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+<!-- ════ NAV ════ -->
+<nav>
+  <a class="nav-left" href="index.html">
+    <img src="images/F & F Logo.png" class="logo">
+    <span class="nav-logo-text">F<span>&amp;</span>F</span>
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="#products">Shop</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+
+  <div class="nav-right">
+    <button class="cart-btn" id="cartToggle" aria-label="Open cart">
+      <svg class="cart-icon" viewBox="0 0 24 24">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  
+
+
+<!-- Hamburger — mobile only -->
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile menu panel -->
+<div class="mob-overlay" id="mobOverlay"></div>
+<div class="mobile-menu" id="mobileMenu" aria-hidden="true">
+  <ul>
+    <li><a href="#products" class="mob-link">Shop</a></li>
+    <li><a href="#about"    class="mob-link">About</a></li>
+    <li><a href="#reviews"  class="mob-link">Reviews</a></li>
+    <li><a href="#contact"  class="mob-link">Contact</a></li>
+  </ul>
+  <div class="mobile-menu-footer">
+    <a href="#products" class="mobile-shop-btn mob-link">🛍️ Shop Now</a>
+    <a href="https://wa.me/+2349066641633" target="_blank" class="mobile-wa-btn">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+      WhatsApp
+    </a>
+  </div>
+</div>
+
+<!-- ════ HERO ════ -->
+<section class="hero">
+  <div>
+    <span class="hero-eyebrow">Handled with love</span>
+    <h1>Affordable fashion delivered <em>fast</em> in Nigeria.</h1>
+    <p>Quality styles at the best prices</p>
+    <div class="hero-cta">
+      <a href="#products" class="btn btn-primary">
+        Shop Now
+      </a>
+      <a href="#about" class="btn btn-outline">Our Story</a>
+    </div>
+  </div>
+</section>
+
+
+<div class="marquee-section" style="position:relative;z-index:2">
+  <div class="marquee-track" id="mqTrack"></div>
+  </div>
+
+<!-- ════ PRODUCTS ════ -->
+<section class="section" id="products">
+  <div class="section-label">Our Collection</div>
+  <h2 class="section-title">Fresh Arrivals &amp; Favourites</h2>
+  <p class="section-sub">Explore our range of artisan-made goods, each crafted with sustainable materials and quiet attention to detail.</p>
+
+  <div class="category-pills" id="categoryPills">
+    <span class="pill active" data-cat="all">All Items</span>
+    <span class="pill" data-cat="footwear">👠Footwear</span>
+    <span class="pill" data-cat="clothing">👗Clothing</span>
+    <span class="pill" data-cat="bags">👜Bags</span>
+    <span class="pill" data-cat="jewelries">💍Jewelries</span>
+  </div>
+
+  <div class="product-grid" id="productGrid"></div>
+</section>
+
+<!-- ════ ABOUT ════ -->
+<section class="about-section" id="about">
+  <div class="about-inner">
+    <!-- ABOUT IMAGE -->
+    <div class="about-img-col">
+      <div class="owner-photo-wrap">
+        <div class="owner-photo" role="img" aria-label="Amara Osei, Founder"></div>
+        <div class="owner-badge">
+          👋 Hi, I'm Damilola<br/>
+          <span style="font-size:.72rem;opacity:.8">Founder &amp; CEO</span>
+        </div>
+      </div>
+    </div>
+    
+
+    <!-- About copy column -->
+    <div class="about-content">
+      <div class="section-label">Our Story</div>
+      <h2 class="section-title">Made by hand.<br/>Shipped with heart.</h2>
+      <p>F &amp; F started in 2015 with a wild dream and a stubborn belief that every person desrved more colors to their life. I'm Damilola, and I wanted to create a online shop where everyone has a fit — where you know the hands that made it.</p>
+      <p>Each product is either packaged by me or sourced directly from small-vendors I trust. No warehouses, no middlemen — just fine wears that shine gracefully and feel right on the body.</p>
+
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-num">10+</span>
+          <span class="stat-lbl">Years Selling</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">2000+</span>
+          <span class="stat-lbl">Happy Customers</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">150+</span>
+          <span class="stat-lbl">Products</span>
+        </div>
+      </div>
+
+      <a href="https://wa.me/+2349066641633" target="_blank" class="btn btn-terra">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Say Hello on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ════ REVIEWS ════ -->
+<section class="reveal">
+<section class="reviews-section" id="reviews">
+  <div class="reviews-inner">
+    <div class="section-label">Customer Love</div>
+    <h2 class="section-title">What People Are Saying</h2>
+    <p class="section-sub">Real words from real customers — no scripts, no incentives.</p>
+
+    <div class="reviews-grid" id="reviewsGrid"></div>
+  </div>
+</section>
+</section>
+
+<!-- ════ CTA BANNER ════ -->
+<section class="reveal">
+<section class="cta-banner">
+  <div class="cta-banner-inner">
+    <h2>Ready to order? It takes <em>30 seconds</em> on WhatsApp.</h2>
+    <p>Browse the shop, add items to your cart, and tap "Order via WhatsApp" — we'll confirm your order, handle payment, and get it shipped to your door.</p>
+    <div class="cta-btns">
+      <a href="#products" class="btn btn-white">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 001.99-1.7L23 6H6"/>
+        </svg>
+        Browse Products
+      </a>
+      <a href="https://wa.me/+2349066641633?text=Hi!%20I'd%20like%20to%20place%20an%20order." target="_blank" class="btn btn-wa">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+</section>
+
+<!-- ════ CONTACT ════ -->
+<section class="reveal">
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div>
+      <div class="section-label">Get in Touch</div>
+      <h2 class="section-title">We'd love<br/>to hear from you.</h2>
+      <p class="section-sub" style="margin-bottom:2rem">Questions, custom orders, or just saying hello — we're always available on WhatsApp for the fastest response.</p>
+
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-item-title">Location</div>
+            <div class="contact-item-val">7 Engr. Abdul street, Giwa<br/>Oke aro, Ifo, Ogun state</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div>
+            <div class="contact-item-title">WhatsApp (fastest)</div>
+            <div class="contact-item-val"><a href="https://wa.me/+2349066641633" target="_blank">+234 906 664 1633</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-item-title">Email</div>
+            <div class="contact-item-val"><a href="oluwadamilolaokeowo@yahoo.com">oluwadamilolaokeowo@yahoo.com</a></div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-item-title">Business Hours</div>
+            <div class="contact-item-val">Mon – Fri: 9am – 6pm<br/>Sat: 10am – 3pm</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact-form-wrap">
+      <div class="contact-form-title">Send us a message</div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="cf-name">Your name</label>
+          <input id="cf-name" type="text" placeholder="John Doe"/>
+        </div>
+        <div class="form-group">
+          <label for="cf-email">Email address</label>
+          <input id="cf-email" type="email" placeholder="johndoe@example.com"/>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="cf-subject">Subject</label>
+        <select id="cf-subject">
+          <option value="">Choose a topic…</option>
+          <option>General enquiry</option>
+          <option>Custom order</op6tion>
+          <option>Wholesale</option>
+          <option>Shipping &amp; delivery</option>
+          <option>Return / exchange</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="cf-msg">Message</label>
+        <textarea id="cf-msg" placeholder="Tell us what's on your mind…"></textarea>
+      </div>
+      <div class="submit-row">
+        <button class="btn btn-primary" id="cfSubmit">
+          Send Message
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+      <div id="cfSuccess" style="display:none;margin-top:.8rem;padding:.75rem 1rem;background:rgba(37,211,102,.08);border:1px solid rgba(37,211,102,.2);border-radius:10px;font-size:.85rem;color:#1E7A40">
+        ✅ Message sent! We'll get back to you within 24 hours.
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer>
+  <div class="footer-grid">
+    <!-- Brand -->
+    <div class="footer-brand">
+      <div class="nav-logo-text">F<span>&amp;</span>F</div>
+      <p>Handcrafted goods made with fine hands and honest materials. Every item tells a story.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.facebook.com/fandfcollectn" class="social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="social-btn" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://wa.me/+2349066641633" target="_blank" class="social-btn" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick links -->
+    <div>
+      <div class="footer-col-title">Quick Links</div>
+      <ul class="footer-links">
+        <li><a href="#products">Shop All</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <!-- Categories -->
+    <div>
+      <div class="footer-col-title">Categories</div>
+      <ul class="footer-links">
+        <li><a href="#products">Footwear</a></li>
+        <li><a href="#products">Clothing</a></li>
+        <li><a href="#products"> Bags</a></li>
+        <li><a href="#products">Jewelries</a></li>                
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div>
+      <div class="footer-col-title">Stay in touch</div>
+      <p class="newsletter-tagline">New drops, seasonal offers, and great deals — straight to your inbox. No spam, ever.</p>
+      <div class="nl-form">
+        <div class="nl-input-row">
+          <input class="nl-input" id="nlEmail" type="email" placeholder="your@email.com" aria-label="Email for newsletter"/>
+          <button class="nl-btn" id="nlBtn">Subscribe</button>
+        </div>
+        <p class="nl-agree">By subscribing you agree to our privacy policy. Unsubscribe anytime.</p>
+        <div class="nl-success" id="nlSuccess">
+          <span>🎉</span> You're in! Welcome to the F &amp; F community.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span class="footer-bottom-l">© 2026 F &amp; F All rights reserved.</span>
+    <div class="footer-bottom-r">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Delivery Info</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ════ CART DRAWER ════ -->
+<div class="overlay" id="overlay"></div>
+<aside class="cart-drawer" id="cartDrawer" role="dialog" aria-modal="true" aria-label="Shopping cart">
+  <div class="drawer-header">
+    <span class="drawer-title">Your Cart</span>
+    <button class="close-btn" id="cartClose" aria-label="Close cart">✕</button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty">
+      <span class="cart-empty-icon">🛒</span>
+      <span>Your cart is empty</span>
+      <span style="font-size:.78rem;color:var(--sand)">Add some items to get started</span>
+    </div>
+  </div>
+  <div class="drawer-footer">
+    <div class="total-row">
+      <span class="total-label">Order total</span>
+      <span class="total-val" id="totalVal">$0.00</span>
+    </div>
+    <a id="waBtn" href="#" target="_blank" class="wa-btn disabled">
+      <svg class="wa-logo" viewBox="0 0 24 24">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      Order via WhatsApp
+    </a>
+  </div>
+</aside>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
