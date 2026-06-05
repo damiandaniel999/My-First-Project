@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oddyson — Phones & Gadgets</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Syne:wght@400;600;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <div class="overlay" id="overlay" onclick="closeCart()"></div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toast" class="toast"></div>
+
+  <!-- CART PANEL -->
+  <aside class="cart-panel" id="cartPanel">
+    <div class="cart-header">
+      <div class="cart-title">YOUR CART</div>
+      <button class="close-btn" onclick="closeCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="summary-row"><span>Subtotal</span><span id="cfSubtotal"></span></div>
+      <div class="summary-row"><span>Shipping</span><span id="cfShipping"></span></div>
+      <div class="summary-total"><span>Total</span><span id="cfTotal"></span></div>
+      <button class="btn-primary" onclick="goCheckout()">Checkout →</button>
+    </div>
+  </aside>
+
+  <!-- ─── NAV ─── -->
+  <nav>
+    <a href="index.html" class="logo">ODDYSON<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#products">Phones</a></li>
+      <li><a href="#categories">Gadgets</a></li>
+      <li><a href="#deals">Deals</a></li>
+      <li><a href="#brands">Brands</a></li>
+      <li><a href="#contact">Support</a></li>
+    </ul>
+    <div class="nav-right">
+      <button class="cart-btn" id="cartBtn" onclick="openCart()">
+        🛒 Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge"><span class="badge-dot"></span> New Arrivals — 2026 Collection</div>
+      <h1>
+        Next-Level<br />
+        <span class="accent">Tech.</span>
+        Your <span class="gold">Edge.</span>
+      </h1>
+      <p class="hero-sub">Discover the latest phones, wearables, and smart gadgets — curated for those who demand more
+        from their devices.</p>
+      <div class="hero-actions">
+        <button class="btn-primary"
+          onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop Now</button>
+        <button class="btn-ghost" onclick="document.getElementById('deals').scrollIntoView({behavior:'smooth'})">View
+          Deals</button>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">2K+</div>
+          <div class="stat-label">Products</div>
+        </div>
+        <div>
+          <div class="stat-num">98%</div>
+          <div class="stat-label">Satisfaction</div>
+        </div>
+        <div>
+          <div class="stat-num">24h</div>
+          <div class="stat-label">Delivery</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="orbit-ring">
+        <div class="orbit-dot"></div>
+      </div>
+      <div class="phone-glow"></div>
+      <div class="phone-showcase">
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="screen-content">
+              <div class="screen-icon">📱</div>
+              <div class="screen-brand">ODDYSON PICK</div>
+              <div class="screen-price">₦1,400,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MARQUEE ─── -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <div class="marquee-item"><span>⚡</span> Free Shipping Over ₦150,000</div>
+      <div class="marquee-item"><span>🛡️</span> 12-Months Warranty</div>
+      <div class="marquee-item"><span>🔄</span> 7-Day Returns</div>
+      <div class="marquee-item"><span>💳</span> 0% Finance Available</div>
+      <div class="marquee-item"><span>🌍</span> Worldwide Delivery</div>
+      <div class="marquee-item"><span>🎧</span> Expert Support 24/7</div>
+      <div class="marquee-item"><span>⚡</span> Free Shipping Over ₦150,000</div>
+      <div class="marquee-item"><span>🛡️</span> 12-Months Warranty</div>
+      <div class="marquee-item"><span>🔄</span> 7-Day Returns</div>
+      <div class="marquee-item"><span>💳</span> 0% Finance Available</div>
+      <div class="marquee-item"><span>🌍</span> Worldwide Delivery</div>
+      <div class="marquee-item"><span>🎧</span> Expert Support 24/7</div>
+    </div>
+  </div>
+
+  <!-- ─── CATEGORIES ─── -->
+  <section class="categories" id="categories">
+    <div class="categories-header reveal">
+      <div>
+        <div class="section-label">Browse by Category</div>
+        <div class="section-title">Shop by<br />Product Type</div>
+      </div>
+      <a href="#products" class="see-all">View All →</a>
+    </div>
+    <div class="cat-grid reveal">
+      <div class="cat-card">
+        <span class="cat-icon">📱</span>
+        <div class="cat-name">Smartphones</div>
+        <div class="cat-count">100+ Models</div>
+      </div>
+      <div class="cat-card">
+        <span class="cat-icon">⌚</span>
+        <div class="cat-name">Smartwatches</div>
+        <div class="cat-count">25+ Models</div>
+      </div>
+      <div class="cat-card">
+        <span class="cat-icon">🎧</span>
+        <div class="cat-name">Audio</div>
+        <div class="cat-count">50+ Items</div>
+      </div>
+      <div class="cat-card">
+        <span class="cat-icon">💻</span>
+        <div class="cat-name">Laptops</div>
+        <div class="cat-count">40+ Models</div>
+      </div>
+      <div class="cat-card">
+        <span class="cat-icon">🎮</span>
+        <div class="cat-name">Gaming</div>
+        <div class="cat-count">35+ Items</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURED PRODUCTS ─── -->
+  <section id="products" style="background: var(--bg);">
+    <div class="products-header reveal">
+      <div class="page active" id="page-shop">
+        <div class="section-label">Handpicked for You</div>
+        <div class="section-title">Featured<br />Products</div>
+      </div>
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter active" onclick="filterProducts('All')" data-cat="All">All</button>
+        <button class="filter" onclick="filterProducts('Phones')" data-cat="Phones">Phones</button>
+        <button class="filter" onclick="filterProducts('Audio')" data-cat="Audio">Audio</button>
+        <button class="filter" onclick="filterProducts('Wearables')" data-cat="Wearables">Wearables</button>
+      </div>
+    </div>
+    <div class="products-grid reveal" id="productsGrid">
+      <!-- Cards injected with JS -->
+    </div>
+
+    <!-- ─── DEAL BANNER ─── -->
+    <section class="deal-banner" id="deals">
+      <div style="position:relative; z-index:2;">
+        <div class="deal-tag reveal">🔥 Flash Sale — Ends Soon</div>
+        <div class="deal-title reveal">Up to <span class="highlight">40% OFF</span><br />on Top Brands</div>
+        <p class="deal-desc reveal">Don't miss these limited-time offers on the hottest gadgets. From flagship phones to
+          premium earbuds — big savings, real fast.</p>
+        <div class="countdown reveal" id="countdown">
+          <div class="cd-unit"><span class="cd-num" id="cd-h">08</span><span class="cd-label">Hours</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cd-m">29</span><span class="cd-label">Mins</span></div>
+          <div class="cd-unit"><span class="cd-num" id="cd-s">59</span><span class="cd-label">Secs</span></div>
+        </div>
+        <button class="btn-primary reveal"
+          onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Grab the Deal</button>
+      </div>
+      <div class="deal-visual reveal">🎧</div>
+    </section>
+
+    <!-- ─── BRANDS ─── -->
+    <section class="brands" id="brands">
+      <div class="brands-title reveal">
+        <div class="section-label">Official Gadgets</div>
+        <div class="section-title">Top Brands We Sell</div>
+      </div>
+      <div class="brands-grid reveal">
+        <div class="brand-item">Apple</div>
+        <div class="brand-item">Samsung</div>
+        <div class="brand-item">JBL</div>
+        <div class="brand-item">Google</div>
+        <div class="brand-item">OnePlus</div>
+        <div class="brand-item">Nothing</div>
+        <div class="brand-item">HP</div>
+        <div class="brand-item">Xiaomi</div>
+      </div>
+    </section>
+
+    <!-- ─── TESTIMONIALS ─── -->
+    <section class="testimonials">
+      <div class="testimonials-header reveal">
+        <div class="section-label">Customer Stories</div>
+        <div class="section-title">What People Say</div>
+      </div>
+      <div class="testimonials-grid reveal">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"Ordered a flagship and it arrived the next morning in perfect condition. The
+            packaging alone made it feel like a luxury unboxing. Best gadget store I've used."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">JB</div>
+            <div>
+              <div class="reviewer-name">James B.</div>
+              <div class="reviewer-tag">Verified Buyer · iPhone 16 Pro</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"The deal alerts feature is incredible. Saved ₦3000 on my JBL headphones. Customer
+            service actually picks up the phone. Refreshing."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">AM</div>
+            <div>
+              <div class="reviewer-name">Adaeze M.</div>
+              <div class="reviewer-tag">Verified Buyer · JBL WH-1000XM6</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="testimonial-text">"I've bought three gadgets from Oddyson this year. Every order has been flawless.
+            They're my go-to store for tech now, no question."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">RT</div>
+            <div>
+              <div class="reviewer-name">Richard T.</div>
+              <div class="reviewer-tag">Verified Buyer · Samsung Galaxy S25</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── NEWSLETTER ─── -->
+    <div class="newsletter" id="contact">
+      <div style="position:relative; z-index:2;">
+        <div class="section-label reveal" style="text-align:center;">✉️ Stay Connected</div>
+        <div class="newsletter-title reveal">Exclusive Deals<br /><span style="color:var(--cyan)">Directly to You</span>
+        </div>
+        <p class="newsletter-sub reveal">Be the first to know about new launches, flash sales, and special discounts —
+          curated for tech enthusiasts like you.</p>
+        <div class="newsletter-form reveal">
+          <input type="email" class="newsletter-input" placeholder="your@email.com" required />
+          <button class="newsletter-btn" onclick="subscribeNewsletter()">Subscribe →</button>
+        </div>
+        <p class="newsletter-note reveal"
+          style="text-align:center; margin-top:14px; font-size:0.75rem; color:var(--muted); letter-spacing:0.08em;">🔒
+          We respect your privacy. Unsubscribe anytime.</p>
+      </div>
+    </div>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+      <div class="footer-grid">
+        <div>
+          <span class="footer-logo">ODDYSON<span>.</span></span>
+          <p class="footer-desc">Your ultimate destination for the latest phones, gadgets, and accessories. Quality gear
+            for the tech-forward generation.</p>
+          <div class="footer-socials">
+            <a href="https://vm.tiktok.com/ZS92A95SARhvs-OVPLO/" class="social-btn" aria-label="TikTok"
+              target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            <a href="https:/wa.me/+2348052186148" class="social-btn" aria-label="Whatsapp" target="_blank"><i
+                class="fa-brands fa-whatsapp"></i></a>
+            <a href="https://www.instagram.com/oddysonhides?igsh=MXB6dm11czVubWhyYg==" class="social-btn"
+              aria-label="Instagram" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://www.facebook.com/odeseye.lolade" class="social-btn" aria-label="Facebook"
+              target="_blank"><i class="fa-brands fa-facebook"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Shop</h4>
+          <ul class="footer-links">
+            <li><a href="#products">Smartphones</a></li>
+            <li><a href="#products">Tablets</a></li>
+            <li><a href="#products">Wearables</a></li>
+            <li><a href="#products">Audio</a></li>
+            <li><a href="#products">Accessories</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Track Order</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Warranty</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">FAQ's</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2026 Oddyson Phones & Gadget Store. All rights reserved.</div>
+        <div class="footer-payments">
+          <span class="pay-badge"><i class="fa-brands fa-cc-visa" title="Visa"></i></span>
+          <span class="pay-badge"><i class="fa-brands fa-cc-mastercard" title="Mastercard"></i></span>
+          <span class="pay-badge"><i class="fa-brands fa-paypal" title="Paypal"></i></span>
+          <span class="pay-badge"><i class="fa-brands fa-bitcoin" title="Crypto"></i></span>
+        </div>
+      </div>
+    </footer>
+  </section>
+
+  <!-- ══ PRODUCT DETAIL MODAL ══ -->
+  <div class="page-overlay" id="page-detail">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content detail-modal">
+      <button class="modal-close" onclick="showPage('shop')">✕</button>
+      <button class="back-btn" onclick="showPage('shop')">← Back</button>
+      <div class="detail-layout">
+        <div class="detail-visual" id="detailVisual"></div>
+        <div class="detail-info" id="detailInfo"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CHECKOUT MODAL ══ -->
+  <div class="page-overlay" id="page-checkout">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content checkout-modal">
+      <button class="modal-close" onclick="closeCheckout()">✕</button>
+      <div class="checkout-wrap">
+        <button class="back-btn" onclick="closeCheckout()">← Back to Cart</button>
+        <h1>Checkout</h1>
+        <div class="checkout-grid">
+          <div class="form-section">
+            <div class="form-group">
+              <label>Contact Information</label>
+              <input class="form-input" id="f-name" placeholder="Full name" oninput="validateForm()" />
+              <br /><br />
+              <input class="form-input" id="f-email" placeholder="Email address" oninput="validateForm()" />
+            </div>
+            <div class="form-group">
+              <label>Delivery Address</label>
+              <input class="form-input" id="f-addr" placeholder="Street address" oninput="validateForm()" />
+              <br /><br />
+              <div class="form-row">
+                <input class="form-input" id="f-city" placeholder="City" oninput="validateForm()" />
+                <input class="form-input" id="f-zip" placeholder="Postcode" oninput="validateForm()" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Payment</label>
+              <input class="form-input" id="f-card" placeholder="Card number" maxlength="19"
+                oninput="formatCard(this); validateForm()" />
+              <br /><br />
+              <div class="form-row">
+                <input class="form-input" id="f-exp" placeholder="MM / YY" maxlength="7" oninput="validateForm()" />
+                <input class="form-input" id="f-cvc" placeholder="CVC" maxlength="3" oninput="validateForm()" />
+              </div>
+            </div>
+          </div>
+          <div class="order-box">
+            <div class="order-box-head">Order Summary</div>
+            <div class="order-box-body">
+              <div id="orderItems"></div>
+              <hr class="order-divider" />
+              <div class="summary-row"><span>Subtotal</span><span id="co-sub"></span></div>
+              <div class="summary-row"><span>Shipping</span><span id="co-ship"></span></div>
+              <div class="order-total"><span>Total</span><span id="co-total"></span></div>
+              <button class="place-btn" id="placeBtn" onclick="placeOrder()" disabled>Place Order</button>
+              <p class="secure-note">🔒 Secured with 256-bit SSL encryption</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SUCCESS MODAL ══ -->
+  <div class="page-overlay" id="page-success">
+    <div class="modal-backdrop"></div>
+    <div class="modal-content success-modal">
+      <div class="success-wrap">
+        <div class="success-icon">⚡</div>
+        <h1 class="success-title">Order <em>Confirmed</em></h1>
+        <p class="success-sub">Your order is on its way. You'll receive a<br />shipping confirmation within 24 hours.
+        </p>
+        <button class="success-continue" onclick="showPage('shop')">Continue Shopping</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
